@@ -80,18 +80,18 @@ function Home() {
 
       {/* CATEGORIES */}
       <section className="relative z-10 mx-auto -mt-6 sm:-mt-8 max-w-7xl px-4 sm:px-6">
-        <div className="grid grid-cols-3 gap-1.5 sm:gap-2 rounded-2xl border bg-card/95 p-2 sm:p-2.5 shadow-lift backdrop-blur md:grid-cols-9">
+        <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-9 gap-2 sm:gap-3 rounded-2xl sm:rounded-3xl border border-border/60 bg-card/95 p-3 sm:p-4 shadow-lift backdrop-blur">
           {homeCategories.map((c, i) => {
             const Icon = catIcons[i] ?? Compass;
             const inner = (
               <>
-                <span className="grid size-8 sm:size-10 place-items-center rounded-xl bg-teal-soft text-teal transition group-hover:bg-teal group-hover:text-primary-foreground">
-                  <Icon className="size-4 sm:size-4.5" />
+                <span className="grid size-10 sm:size-11 place-items-center rounded-full bg-teal-soft text-teal transition duration-200 group-hover:bg-teal group-hover:text-primary-foreground group-hover:scale-105 shadow-sm">
+                  <Icon className="size-4.5 sm:size-5" />
                 </span>
-                <span className="text-center text-[11px] sm:text-xs font-medium text-navy line-clamp-2">{tc(c.label)}</span>
+                <span className="text-center text-[11px] sm:text-xs font-semibold text-navy dark:text-foreground line-clamp-2 leading-tight">{tc(c.label)}</span>
               </>
             );
-            const cls = "group flex flex-col items-center gap-1.5 sm:gap-2 rounded-xl p-2 sm:p-2.5 transition hover:bg-muted";
+            const cls = "group flex flex-col items-center gap-2 rounded-2xl p-2 transition hover:bg-muted/70";
             if (c.to === "/events") return <Link key={c.label} to="/events" className={cls}>{inner}</Link>;
             if (c.to === "/businesses") return <Link key={c.label} to="/businesses" search={{ category: c.category }} className={cls}>{inner}</Link>;
             return <Link key={c.label} to="/explore" search={{ category: c.category }} className={cls}>{inner}</Link>;
