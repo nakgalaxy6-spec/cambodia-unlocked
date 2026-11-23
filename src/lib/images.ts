@@ -6,38 +6,39 @@ export const img = {
   hero: "/images/hero-angkor.jpg",
 
   // 1. Heritage & Ancient Temples (Destinations)
-  angkorWat: "https://images.unsplash.com/photo-1608999383953-d61f5d9c1ace?auto=format&fit=crop&w=1200&q=80", // Angkor Wat central towers & reflection
-  angkorWalkway: "https://images.unsplash.com/photo-1599283787923-51b965a58b05?auto=format&fit=crop&w=1200&q=80", // Angkor Wat ancient stone causeway & towers
-  bayon: "https://images.unsplash.com/photo-1560943701-14f678837722?auto=format&fit=crop&w=1200&q=80", // Bayon Temple smiling stone Bodhisattva faces
-  banteay: "/images/banteay-srei.jpg", // Banteay Srei pink sandstone temple devata carvings
-  taProhm: "https://images.unsplash.com/photo-1526324585411-e24d5ba61edd?auto=format&fit=crop&w=1200&q=80", // Ta Prohm ancient banyan tree roots embracing stone ruins
-  preahKhan: "https://images.unsplash.com/photo-1788836690536-bc16ee1babe7?auto=format&fit=crop&w=1200&q=80", // Preah Khan stone colonnade galleries & monastic ruins
-  preRup: "https://images.unsplash.com/photo-1788491109700-73bc9d76a431?auto=format&fit=crop&w=1200&q=80", // Pre Rup warm golden-red stepped temple pyramid in Siem Reap
+  angkorWat: "/images/angkor-wat.jpg", // Angkor Wat north lotus pond reflection (iconic 5 towers)
+  angkorWalkway: "/images/angkor-walkway.jpg", // Angkor Wat ancient stone causeway bridge
+  bayon: "/images/bayon-temple.jpg", // Bayon Temple smiling stone Bodhisattva faces
+  banteay: "/images/banteay-srei.jpg", // Banteay Srei pink sandstone temple central towers
+  taProhm: "/images/ta-prohm.jpg", // Ta Prohm ancient banyan tree roots embracing stone ruins
+  preahKhan: "/images/preah-khan.jpg", // Preah Khan stone entrance corridor and guardian statues
+  preRup: "/images/pre-rup.jpg", // Pre Rup warm golden-red stepped temple pyramid in Siem Reap
   phnomBakheng: "/images/phnom-bakheng.jpg", // Phnom Bakheng hilltop temple with Angkor sunset views
   bakong: "/images/bakong.jpg", // Bakong Roluos sandstone temple pyramid
-  chauSreiVibol: "/images/chau-srei-vibol.jpg", // Chau Srei Vibol / Banteay Samre secluded forest temple
-  bengMealea: "https://images.unsplash.com/photo-1753155438861-97e8d0025742?auto=format&fit=crop&w=1200&q=80", // Beng Mealea mossy jungle ruins & collapsed stones
+  banteaySamre: "/images/banteay-samre.jpg", // Banteay Samré 12th-century classical Angkor temple
+  chauSreiVibol: "/images/banteay-samre.jpg", // Banteay Samre
+  bengMealea: "/images/beng-mealea.jpg", // Beng Mealea mossy jungle ruins & collapsed stones
 
   // 2. Nature, Waterfalls & Tonle Sap (Destinations)
   kulen: "/images/phnom-kulen.jpg", // Phnom Kulen jungle waterfall & turquoise pool
-  kbalSpean: "/images/kbal-spean.jpg", // Kbal Spean River of Thousand Lingas & riverbed carvings
+  kbalSpean: "/images/kbal-spean.jpg", // Kbal Spean River of Thousand Lingas riverbed carvings in running water
   floating: "/images/floating-village.jpg", // Kampong Phluk floating village on Tonle Sap with wooden boats
-  kompongKhleang: "/images/kompong-khleang.jpg", // Kompong Khleang stilt community on Tonle Sap
+  kompongKhleang: "/images/kompong-khleang.jpg", // Kompong Khleang 10-meter stilt community on Tonle Sap
   chongKneas: "/images/chong-kneas.jpg", // Chong Kneas floating village & port
-  mechrey: "/images/mechrey.jpg", // Mechrey floating village & bird sanctuary
+  mechrey: "/images/mechrey.jpg", // Mechrey floating village on Tonle Sap lake
   lotus: "/images/lotus-farm.jpg", // Lotus farm & pink lotus pond with wooden walkway
   royalGardens: "/images/royal-gardens.jpg", // Royal Independence Gardens & Preah Ang Chek shrine
-  westBaray: "https://images.unsplash.com/photo-1787055923407-e11fea7de630?auto=format&fit=crop&w=1200&q=80", // Sunset over ancient Angkor water reservoir
+  westBaray: "/images/west-baray.jpg", // West Baray ancient water reservoir & island ruins
   bike: "/images/bicycle-tour.jpg", // Countryside bicycle tour through rice paddies & palms
 
   // 3. Cultural Crafts & Experiences (Destinations)
   pottery: "/images/pottery.jpg", // Traditional pottery making & artisan clay workshop
   cooking: "/images/cooking-class.jpg", // Traditional Khmer cooking class with fresh ingredients
-  preahDak: "/images/preah-dak.jpg", // Preah Dak village noodle making & palm sugar
-  artisansAngkor: "/images/artisans-angkor.jpg", // Artisans Angkor silk weaving & carving workshop
-  angkorMuseum: "/images/angkor-museum.jpg", // Angkor National Museum galleries
-  phareCircus: "/images/phare-circus.jpg", // Phare The Cambodian Circus acrobatic performance
-  pubStreet: "https://images.unsplash.com/photo-1568715281772-74fa7a5e6e72?auto=format&fit=crop&w=1200&q=80", // Pub Street & Night Market in Siem Reap town
+  preahDak: "/images/preah-dak.jpg", // Preah Dak village traditional palm sugar boiling
+  artisansAngkor: "/images/artisans-angkor.jpg", // Artisans Angkor wood carving & stone workshop
+  angkorMuseum: "/images/angkor-museum.jpg", // Angkor National Museum galleries on Charles de Gaulle Blvd
+  phareCircus: "/images/phare-circus.jpg", // Phare The Cambodian Circus live acrobatic performance
+  pubStreet: "/images/pub-street.jpg", // Pub Street & Night Market illuminated evening street in Siem Reap town
 
   // 4. Businesses (100% Unique images for every business)
   potteryStudio: "https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=1200&q=80", // Village Pottery Studio (terracotta ceramics)
@@ -64,13 +65,13 @@ export const img = {
   foodFairEvent: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80", // Local Community Food Fair
 
   // 6. Community Stories (100% Unique storytelling images)
-  storyLotusFarm: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=1200&q=80", // Lotus Farm Community (pink lotus blossoms in peaceful pond)
-  storyFloatingFishers: "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=1200&q=80", // Floating Village Fishers (fisherman casting net at sunrise on Tonle Sap)
-  storyPotteryArtisans: "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=1200&q=80", // Pottery Village Artisans (hands molding clay on potter's wheel)
-  storyHomestayFamily: "https://images.unsplash.com/photo-1541971875076-8f970d573be6?auto=format&fit=crop&w=1200&q=80", // A Night with the Homestay Family (warm rural village family life)
-  storyDaraGuide: "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1200&q=80", // From Village Boy to Temple Guide (licensed guide showing intricate ancient reliefs)
-  storyKulenReforestation: "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=1200&q=80", // Replanting Phnom Kulen (lush tropical green mountain rainforest)
-  storySokhaTukTuk: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1200&q=80", // Sokha - The Driver Who Speaks Five Languages (Cambodian transportation and travel journey)
+  storyLotusFarm: "/images/story-lotus-farm.jpg", // Lotus Farm Community (pink lotus blossoms in peaceful pond)
+  storyFloatingFishers: "/images/story-floating-village.jpg", // Floating Village Fishers (fisherman casting net at sunrise on Tonle Sap)
+  storyPotteryArtisans: "/images/story-pottery-artisans.jpg", // Pottery Village Artisans (hands molding clay on potter's wheel)
+  storyHomestayFamily: "/images/story-homestay.jpg", // A Night with the Homestay Family (warm rural village family life)
+  storyDaraGuide: "/images/story-dara-guide.jpg", // From Village Boy to Temple Guide (licensed guide showing intricate ancient reliefs)
+  storyKulenReforestation: "/images/story-kulen-reforestation.jpg", // Replanting Phnom Kulen (lush tropical green mountain rainforest)
+  storySokhaTukTuk: "/images/story-sokha-tuktuk.jpg", // Sokha - The Driver Who Speaks Five Languages (Cambodian transportation and travel journey)
 
   // 7. Guides & People (Real Cambodian profiles & avatars uploaded by user)
   travelerCartoon: "/images/traveler-cartoon.jpg", // Doll/cartoon avatar uploaded by user
