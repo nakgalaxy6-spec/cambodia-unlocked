@@ -31,7 +31,13 @@ if errorlevel 1 (
 )
 
 echo.
-echo [3/3] Deploying project to Vercel Production...
+echo [3/3] Deploying project to Vercel Production (cambodia-unlocked-app)...
+echo.
+echo ********************************************************
+echo  IMPORTANT: When prompted by Vercel:
+echo    1. Link to existing project? [y/N]  --^> Type: y
+echo    2. What is the name of your project? --^> Type: cambodia-unlocked-app
+echo ********************************************************
 echo.
 call npx vercel --prod
 echo.
