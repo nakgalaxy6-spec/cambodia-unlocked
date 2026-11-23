@@ -170,6 +170,8 @@ export function SiteHeader() {
                         ? t("Business Owner", "ម្ចាស់អាជីវកម្ម")
                         : user.role === "admin"
                         ? t("Platform Admin", "អ្នកគ្រប់គ្រងប្រព័ន្ធ")
+                        : user.role === "guide"
+                        ? t("Tour Guide", "មគ្គុទ្ទេសក៍ទេសចរណ៍")
                         : t("Traveler / Guest", "ភ្ញៀវទេសចរ")}
                     </span>
                   </div>
@@ -185,40 +187,51 @@ export function SiteHeader() {
                 <DropdownMenuSeparator />
 
                 <DropdownMenuLabel className="px-2 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
-                  {t("Quick Switch Demo Role", "ប្តូរតួនាទីសាកល្បង")}
+                  {t("Quick Switch Demo Role (4 Roles)", "ប្តូរតួនាទីសាកល្បង (៤ តួនាទី)")}
                 </DropdownMenuLabel>
                 <DropdownMenuItem
                   onClick={() => {
-                    const u = quickLogin("traveler");
+                    quickLogin("traveler");
                     toast.success(t("Switched to Traveler", "បានប្តូរទៅគណនីភ្ញៀវទេសចរ"));
                     navigate({ to: "/dashboard" });
                   }}
                   className={itemCls}
                 >
                   <User className="size-4 text-teal" />
-                  <span>{t("Traveler (Sokchan)", "ភ្ញៀវទេសចរ (សុខចាន់)")}</span>
+                  <span>{t("1. Traveler (Sokchan)", "១. ភ្ញៀវទេសចរ (សុខចាន់)")}</span>
                 </DropdownMenuItem>
                 <DropdownMenuItem
                   onClick={() => {
-                    const u = quickLogin("business");
+                    quickLogin("guide");
+                    toast.success(t("Switched to Tour Guide", "បានប្តូរទៅគណនីមគ្គុទ្ទេសក៍"));
+                    navigate({ to: "/guide-dashboard" });
+                  }}
+                  className={itemCls}
+                >
+                  <Compass className="size-4 text-emerald-600" />
+                  <span>{t("2. Tour Guide (Dara)", "២. មគ្គុទ្ទេសក៍ (ដារ៉ា)")}</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem
+                  onClick={() => {
+                    quickLogin("business");
                     toast.success(t("Switched to Business Owner", "បានប្តូរទៅគណនីម្ចាស់អាជីវកម្ម"));
                     navigate({ to: "/business-dashboard" });
                   }}
                   className={itemCls}
                 >
                   <Store className="size-4 text-gold" />
-                  <span>{t("Business (Chanreay)", "ម្ចាស់អាជីវកម្ម (ចាន់រី)")}</span>
+                  <span>{t("3. Business (Chanreay)", "៣. ម្ចាស់អាជីវកម្ម (ចាន់រី)")}</span>
                 </DropdownMenuItem>
                 <DropdownMenuItem
                   onClick={() => {
-                    const u = quickLogin("admin");
+                    quickLogin("admin");
                     toast.success(t("Switched to Platform Admin", "បានប្តូរទៅគណនី Admin"));
                     navigate({ to: "/admin" });
                   }}
                   className={itemCls}
                 >
                   <ShieldCheck className="size-4 text-navy" />
-                  <span>{t("Admin (Borey)", "អ្នកគ្រប់គ្រង (បូរី)")}</span>
+                  <span>{t("4. Admin (Borey)", "៤. អ្នកគ្រប់គ្រង (បូរី)")}</span>
                 </DropdownMenuItem>
 
                 <DropdownMenuSeparator />

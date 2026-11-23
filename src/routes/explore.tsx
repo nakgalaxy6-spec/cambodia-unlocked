@@ -52,9 +52,13 @@ function Explore() {
   const category = search.category ?? ALL;
 
   const results = useMemo(() => {
-    const term = (search.q ?? "").toLowerCase();
+    const term = (search.q ?? "").trim().toLowerCase();
     return destinations.filter((d) => {
-      if (term && !`${d.name} ${d.location} ${d.category} ${d.short}`.toLowerCase().includes(term)) return false;
+      if (term) {
+        const enStr = `${d.name} ${d.location} ${d.category} ${d.short} ${d.tag} ${d.area}`.toLowerCase();
+        const kmStr = `${tc(d.name)} ${tc(d.location)} ${tc(d.category)} ${tc(d.short)} ${tc(d.tag)} ${tc(d.area)}`.toLowerCase();
+        if (!enStr.includes(term) && !kmStr.includes(term)) return false;
+      }
       if (category !== ALL && d.category !== category) return false;
       if (location !== ALL && d.area !== location) return false;
       if (budget !== ALL && d.budget !== budget) return false;
@@ -62,7 +66,7 @@ function Explore() {
       if (family && !d.familyFriendly) return false;
       return true;
     });
-  }, [search.q, category, location, budget, openNow, family]);
+  }, [search.q, category, location, budget, openNow, family, tc]);
 
   const setCategory = (v: string) => navigate({ search: (prev) => { const n: ExploreSearch = {}; if (prev.q) n.q = prev.q; if (v !== ALL) n.category = v; return n; } });
   const reset = () => {

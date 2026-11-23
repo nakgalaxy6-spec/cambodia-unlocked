@@ -15,6 +15,7 @@ import { useAuth } from "@/lib/auth";
 import { destinations, businesses, events, stories } from "@/lib/data";
 import { tourGuides, travelerProfile, getOwner, teamMembers, branchLocations, guidePartners } from "@/lib/people";
 import { useFavorites } from "@/lib/favorites";
+import { img } from "@/lib/images";
 
 type Row = { title: string; detail: string; image?: string; id?: string };
 function Records({ rows }: { rows: Row[] }) {
@@ -53,12 +54,12 @@ export const Route = createFileRoute("/admin")({
 });
 function DashboardPage() {
   const { t, tc, lang, setLang } = useI18n();
-  const { user } = useAuth();
+  const { user, quickLogin } = useAuth();
   const search = Route.useSearch();
   const navigate = useNavigate({ from: "/admin" });
 
   const displayName = user?.name ?? "Borey Seng (បូរី សេង)";
-  const displayAvatar = user?.avatar;
+  const displayAvatar = user?.avatar ?? img.adminBorey;
 
   const groups = [
     { title: t("Overview", "ទិដ្ឋភាពទូទៅ"), items: [{ id: "users", label: t("Users", "អ្នកប្រើប្រាស់"), icon: Users }, { id: "businesses", label: t("Businesses", "អាជីវកម្ម"), icon: Store }, { id: "guides", label: t("Guides", "មគ្គុទ្ទេសក៍"), icon: Compass }, { id: "destinations", label: t("Destinations", "គោលដៅទេសចរណ៍"), icon: MapPin }, { id: "events", label: t("Events", "ព្រឹត្តិការណ៍"), icon: Calendar }] },
@@ -97,7 +98,62 @@ function DashboardPage() {
   };
   const panel = active === "business-approval" ? <ApprovalQueue key="business" rows={businessRows.slice(0, 3)} /> : active === "guide-approval" ? <ApprovalQueue key="guide" rows={guideRows.slice(0, 3)} /> : active === "plans" ? <Plans kind="all" /> : active === "promotions" ? <Plans kind="promotions" /> : active === "sponsored" ? <Plans kind="sponsored" /> : active === "growth" ? <Metrics /> : <Records rows={rows[active] ?? messageRows} />;
 
-  return <DashboardShell title={t("Platform Administration", "ការគ្រប់គ្រងវេទិកា")} role={t("Master Platform Admin", "អ្នកគ្រប់គ្រងជាន់ខ្ពស់")} user={{ name: displayName, initials: displayName.slice(0, 2).toUpperCase(), avatar: displayAvatar, roleTag: t("Admin Lead", "អ្នកគ្រប់គ្រង") }} groups={groups} active={active} onSelect={selectTab} footer={<Button variant="ghost" className="mt-3 w-full justify-start" onClick={() => selectTab("overview") }>{t("Overview", "ទិដ្ឋភាពទូទៅ")}</Button>}>
+  return (
+    <DashboardShell
+      title={t("Platform Administration", "ការគ្រប់គ្រងវេទិកា")}
+      role={t("Master Platform Admin", "អ្នកគ្រប់គ្រងជាន់ខ្ពស់")}
+      user={{
+        name: displayName,
+        initials: displayName.slice(0, 2).toUpperCase(),
+        avatar: displayAvatar,
+        roleTag: t("Admin Lead", "អ្នកគ្រប់គ្រង"),
+      }}
+      groups={groups}
+      active={active}
+      onSelect={selectTab}
+      footer={
+        <div className="mt-4 rounded-2xl border border-gold/40 bg-gold-soft/40 p-3 space-y-2">
+          <p className="text-[11px] font-bold text-navy uppercase tracking-wider">
+            {t("Test Interconnected Roles", "តេស្តតួនាទីដែលទាក់ទងគ្នា")}
+          </p>
+          <div className="grid grid-cols-3 gap-1">
+            <button
+              type="button"
+              onClick={() => {
+                quickLogin("traveler");
+                toast.success(t("Switched to Traveler", "បានប្តូរទៅគណនីអ្នកដំណើរ"));
+                navigate({ to: "/dashboard" });
+              }}
+              className="rounded-lg bg-card p-1.5 text-center text-[10px] font-semibold text-navy hover:bg-teal hover:text-white transition"
+            >
+              Traveler
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                quickLogin("guide");
+                toast.success(t("Switched to Tour Guide", "បានប្តូរទៅគណនីមគ្គុទ្ទេសក៍"));
+                navigate({ to: "/guide-dashboard" });
+              }}
+              className="rounded-lg bg-card p-1.5 text-center text-[10px] font-semibold text-navy hover:bg-emerald-600 hover:text-white transition"
+            >
+              Tour Guide
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                quickLogin("business");
+                toast.success(t("Switched to Business", "បានប្តូរទៅគណនីអាជីវកម្ម"));
+                navigate({ to: "/business-dashboard" });
+              }}
+              className="rounded-lg bg-card p-1.5 text-center text-[10px] font-semibold text-navy hover:bg-gold hover:text-navy transition"
+            >
+              Business
+            </button>
+          </div>
+        </div>
+      }
+    >
     {/* Executive Platform Banner */}
     <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-navy via-slate-900 to-teal/80 p-6 sm:p-7 text-white shadow-lift border border-teal/40">
       <div className="relative z-10 flex flex-wrap items-center justify-between gap-4">
@@ -143,7 +199,8 @@ function DashboardPage() {
         <Widget title={t("Community activity", "សកម្មភាពសហគមន៍")} action={<Button variant="ghost" onClick={() => selectTab("reviews")}>{t("View all", "មើលទាំងអស់")}</Button>}><Records rows={reviewRows} /></Widget>
       </div>
     </> : <Widget title={heading}>{panel}</Widget>}
-  </DashboardShell>;
+  </DashboardShell>
+  );
 }
 
 function Metrics() {

@@ -146,14 +146,22 @@ function LoginPage() {
             </div>
 
             {/* Middle Feature Highlights */}
-            <div className="relative z-10 space-y-3 py-6">
+            <div className="relative z-10 space-y-2.5 py-4">
               {[
                 {
                   icon: User,
                   title: t("For Travelers / សម្រាប់ភ្ញៀវ", "សម្រាប់ភ្ញៀវទេសចរ"),
                   desc: t(
-                    "Save hidden gems, build custom itineraries, and contact locals directly.",
+                    "Save hidden gems, build custom itineraries, and contact local guides directly.",
                     "រក្សាទុកកន្លែងពិសេស រៀបចំដំណើរកម្សាន្ត និងទាក់ទងអ្នកក្នុងស្រុកផ្ទាល់។"
+                  ),
+                },
+                {
+                  icon: Compass,
+                  title: t("For Tour Guides / សម្រាប់មគ្គុទ្ទេសក៍", "សម្រាប់មគ្គុទ្ទេសក៍ទេសចរណ៍"),
+                  desc: t(
+                    "Receive direct bookings, partner with local businesses, 0% commission.",
+                    "ទទួលការកក់ផ្ទាល់ ភ្ជាប់ទំនាក់ទំនងជាមួយអាជីវកម្មក្នុងស្រុក គ្មានកម្រៃជើងសារ។"
                   ),
                 },
                 {
@@ -168,21 +176,21 @@ function LoginPage() {
                   icon: ShieldCheck,
                   title: t("For Platform Admins / សម្រាប់អ្នកគ្រប់គ្រង", "សម្រាប់អ្នកគ្រប់គ្រង"),
                   desc: t(
-                    "Verify businesses, track community growth, and manage operations.",
-                    "ផ្ទៀងផ្ទាត់អាជីវកម្ម តាមដានការរីកចម្រើនសហគមន៍ និងគ្រប់គ្រងប្រព័ន្ធ។"
+                    "Verify businesses & guides, track community growth, and manage operations.",
+                    "ផ្ទៀងផ្ទាត់អាជីវកម្មនិងមគ្គុទ្ទេសក៍ តាមដានការរីកចម្រើនសហគមន៍។"
                   ),
                 },
               ].map((item, idx) => (
                 <div
                   key={idx}
-                  className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/5 p-3.5 backdrop-blur-md"
+                  className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/5 p-3 backdrop-blur-md"
                 >
-                  <div className="grid size-9 shrink-0 place-items-center rounded-xl bg-teal/20 text-teal">
+                  <div className="grid size-8 shrink-0 place-items-center rounded-xl bg-teal/20 text-teal">
                     <item.icon className="size-4" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-semibold text-white">{item.title}</h4>
-                    <p className="text-xs text-navy-foreground/70">{item.desc}</p>
+                    <h4 className="text-xs font-semibold text-white">{item.title}</h4>
+                    <p className="text-[11px] text-navy-foreground/70 leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
               ))}
@@ -237,14 +245,19 @@ function LoginPage() {
               {/* ROLE SELECTION TABS */}
               <div className="mt-6">
                 <Label className="text-xs font-semibold text-navy">
-                  {t("Choose Your Account Role / ជ្រើសរើសតួនាទី", "ជ្រើសរើសតួនាទី")}
+                  {t("Choose Your Account Role (4 Roles) / ជ្រើសរើសតួនាទី", "ជ្រើសរើសតួនាទី (៤ តួនាទី)")}
                 </Label>
-                <div className="mt-2 grid grid-cols-3 gap-2">
+                <div className="mt-2 grid grid-cols-2 sm:grid-cols-4 gap-2">
                   {[
                     {
                       id: "traveler" as UserRole,
                       label: t("Traveler", "ភ្ញៀវទេសចរ"),
                       icon: User,
+                    },
+                    {
+                      id: "guide" as UserRole,
+                      label: t("Tour Guide", "មគ្គុទ្ទេសក៍"),
+                      icon: Compass,
                     },
                     {
                       id: "business" as UserRole,
@@ -264,7 +277,7 @@ function LoginPage() {
                         key={r.id}
                         type="button"
                         onClick={() => handleRoleChange(r.id)}
-                        className={`group relative flex flex-col items-center gap-1.5 rounded-2xl border p-3 text-center transition-all ${
+                        className={`group relative flex flex-col items-center gap-1.5 rounded-2xl border p-2.5 text-center transition-all ${
                           isSelected
                             ? "border-teal bg-teal-soft text-teal shadow-sm ring-2 ring-teal/30"
                             : "border-border bg-card text-muted-foreground hover:border-teal/40 hover:text-navy"
@@ -291,13 +304,13 @@ function LoginPage() {
                 <div className="flex items-center justify-between">
                   <span className="flex items-center gap-1.5 text-xs font-bold text-navy">
                     <Sparkles className="size-3.5 text-gold" />
-                    {t("Instant 1-Click Demo Login", "ចុចចូលសាកល្បងភ្លាមៗ (១ ចុច)")}
+                    {t("Instant 1-Click Demo Login (4 Roles)", "ចុចចូលសាកល្បងភ្លាមៗ (៤ តួនាទី)")}
                   </span>
                   <span className="text-[11px] text-muted-foreground">
-                    {t("No password needed", "មិនចាំបាច់វាយពាក្យសម្ងាត់")}
+                    {t("No password needed", "មិនបាច់វាយលេខសម្ងាត់")}
                   </span>
                 </div>
-                <div className="mt-2.5 flex flex-wrap gap-2">
+                <div className="mt-2.5 grid grid-cols-2 sm:grid-cols-4 gap-2">
                   <Button
                     type="button"
                     size="sm"
@@ -306,7 +319,17 @@ function LoginPage() {
                     className="h-8 rounded-full border-teal/40 bg-card text-xs font-medium text-navy hover:bg-teal hover:text-white"
                   >
                     <User className="mr-1 size-3 text-teal" />
-                    {t("Traveler Demo", "ភ្ញៀវទេសចរ")}
+                    {t("Traveler", "ភ្ញៀវទេសចរ")}
+                  </Button>
+                  <Button
+                    type="button"
+                    size="sm"
+                    variant="outline"
+                    onClick={() => handleQuickDemo("guide")}
+                    className="h-8 rounded-full border-emerald-500/50 bg-card text-xs font-medium text-navy hover:bg-emerald-600 hover:text-white"
+                  >
+                    <Compass className="mr-1 size-3 text-emerald-600" />
+                    {t("Tour Guide", "មគ្គុទ្ទេសក៍")}
                   </Button>
                   <Button
                     type="button"
@@ -316,7 +339,7 @@ function LoginPage() {
                     className="h-8 rounded-full border-gold/50 bg-card text-xs font-medium text-navy hover:bg-gold hover:text-gold-foreground"
                   >
                     <Store className="mr-1 size-3 text-gold" />
-                    {t("Business Owner", "ម្ចាស់អាជីវកម្ម")}
+                    {t("Business", "អាជីវកម្ម")}
                   </Button>
                   <Button
                     type="button"
@@ -326,7 +349,7 @@ function LoginPage() {
                     className="h-8 rounded-full border-navy/40 bg-card text-xs font-medium text-navy hover:bg-navy hover:text-white"
                   >
                     <ShieldCheck className="mr-1 size-3 text-navy" />
-                    {t("Platform Admin", "អ្នកគ្រប់គ្រង")}
+                    {t("Admin", "Admin")}
                   </Button>
                 </div>
               </div>

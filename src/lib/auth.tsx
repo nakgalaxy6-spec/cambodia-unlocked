@@ -48,7 +48,7 @@ export const DEMO_ACCOUNTS: Record<UserRole, AuthUser> = {
     name: "Borey Seng (បូរី សេង)",
     email: "admin.borey@cambodia-unlocked.kh",
     role: "admin",
-    avatar: img.expertHistorian,
+    avatar: img.adminBorey,
     phone: "+855 12 999 888",
     location: "Siem Reap Provincial Office",
     bio: "Platform Lead Administrator & Tourism Ecosystem Director.",
@@ -95,7 +95,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<AuthUser | null>(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved) return JSON.parse(saved);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (parsed.role === "traveler") {
+          parsed.avatar = img.travelerSokchan;
+        } else if (parsed.role === "business") {
+          parsed.avatar = img.ownerChanreay;
+        } else if (parsed.role === "admin") {
+          parsed.avatar = img.adminBorey;
+        } else if (parsed.role === "guide") {
+          parsed.avatar = img.guideDara;
+        }
+        return parsed;
+      }
     } catch {
       // fallback
     }
@@ -169,7 +181,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       data.role === "business"
         ? img.ownerChanreay
         : data.role === "admin"
-        ? img.expertHistorian
+        ? img.adminBorey
         : data.role === "guide"
         ? img.guideDara
         : img.travelerSokchan;

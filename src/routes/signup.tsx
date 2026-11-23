@@ -161,7 +161,7 @@ function SignUpPage() {
                 </p>
               </div>
 
-              <div className="grid gap-3.5 sm:grid-cols-3">
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                 {[
                   {
                     id: "traveler" as UserRole,
@@ -174,11 +174,21 @@ function SignUpPage() {
                     tag: t("Most Popular", "ពេញនិយម"),
                   },
                   {
+                    id: "guide" as UserRole,
+                    title: t("Tour Guide", "មគ្គុទ្ទេសក៍ទេសចរណ៍"),
+                    desc: t(
+                      "Receive direct traveler bookings, connect with partner businesses, and manage tour circuits with 0% fees.",
+                      "ទទួលការកក់ផ្ទាល់ ភ្ជាប់ជាមួយអាជីវកម្មជាដៃគូ និងគ្រប់គ្រង tour គ្មានកម្រៃជើងសារ។"
+                    ),
+                    icon: Compass,
+                    tag: t("Zero Fees", "គ្មានកម្រៃ"),
+                  },
+                  {
                     id: "business" as UserRole,
                     title: t("Local Business Owner", "ម្ចាស់អាជីវកម្ម"),
                     desc: t(
-                      "List your business free, showcase services, receive traveler inquiries, and grow your local impact.",
-                      "ចុះបញ្ជីឥតគិតថ្លៃ បង្ហាញសេវាកម្ម ទទួលសំណួរពីភ្ញៀវ និងបង្កើនប្រាក់ចំណូល។"
+                      "List your business free, showcase services, receive traveler inquiries, and partner with tour guides.",
+                      "ចុះបញ្ជីឥតគិតថ្លៃ បង្ហាញសេវាកម្ម ទទួលសំណួរពីភ្ញៀវ និងសហការជាមួយមគ្គុទ្ទេសក៍។"
                     ),
                     icon: Store,
                     tag: t("Free Profile", "ឥតគិតថ្លៃ"),
@@ -188,7 +198,7 @@ function SignUpPage() {
                     title: t("Platform Admin", "អ្នកគ្រប់គ្រង"),
                     desc: t(
                       "Manage business verifications, monitor community impact, and oversee platform performance.",
-                      "ផ្ទៀងផ្ទាត់អាជីវកម្ម តាមដានផលជះសហគមន៍ និងត្រួតពិនិត្យប្រព័ន្ធ។"
+                      "ផ្ទៀងផ្ទាត់អាជីវកម្មនិងមគ្គុទ្ទេសក៍ តាមដានផលជះសហគមន៍ និងត្រួតពិនិត្យប្រព័ន្ធ។"
                     ),
                     icon: ShieldCheck,
                     tag: t("Executive", "អ្នកគ្រប់គ្រង"),

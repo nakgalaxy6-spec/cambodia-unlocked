@@ -108,6 +108,7 @@ export const tourGuides: TourGuide[] = [
   {
     slug: "vuthy-kim",
     name: "Vuthy Kim",
+    photo: img.guideDara,
     cover: img.kulen,
     category: "nature",
     verified: true,
@@ -134,6 +135,7 @@ export const tourGuides: TourGuide[] = [
   {
     slug: "sophea-lim",
     name: "Sophea Lim",
+    photo: img.guideSreymom,
     cover: img.streetFood,
     category: "food",
     verified: true,
@@ -160,6 +162,7 @@ export const tourGuides: TourGuide[] = [
   {
     slug: "rithy-phan",
     name: "Rithy Phan",
+    photo: img.guideDara,
     cover: img.taProhm,
     category: "photography",
     verified: false,
@@ -324,7 +327,7 @@ export const localExperts: LocalExpert[] = [
     name: "Grandma Srey Mao",
     type: "Chefs",
     title: "Village kitchen chef",
-    photo: img.expertChef,
+    photo: img.cooking,
     cover: img.cooking,
     story: "Srey Mao learned to cook from her mother over a charcoal stove. Her fish amok is the reason most guests come back.",
     expertise: ["Fish amok", "Garden herbs", "Palm sugar desserts"],
